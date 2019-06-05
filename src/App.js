@@ -16,7 +16,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <CardsSection />
+        <CardsSection cards={[]}/>
+        <CardsSection cards={[1]}/>
+        <CardsSection cards={[1,2]}/>
+        <CardsSection cards={[1,2,3]}/>
       </div>
     )
   }
