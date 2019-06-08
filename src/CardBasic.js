@@ -33,10 +33,14 @@ class Card extends Component {
       width,
       backgroundColor: arbitraryHexColor(idx+1)
     }
+    const swipyProps = {
+      limit: width*1,
+      onSwipe: this.props.swipeFn
+    }
 
     return (
       <div style={ posStyles } >
-        <Swipeable>
+        <Swipeable {...swipyProps} >
           <div style={ contentStyles }>
             <p>{JSON.stringify(this.props.card)+(this.props.idx)+contentStyles.backgroundColor}</p>
           </div>

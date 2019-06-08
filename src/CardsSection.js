@@ -59,6 +59,7 @@ class CardsSection extends Component {
             {...card}
             active={ 1+idx===this.state.activeCard }
             distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
+            swipeFn={ this.props.swipeFn }
           />
         )}
       </div>
