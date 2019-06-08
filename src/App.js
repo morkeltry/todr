@@ -17,7 +17,7 @@ console.log(users);
 
     const cardsArr = users
     .slice(0,5)
-    .map (x => ({id:x.id, username:x.name, username:x.name, phone:x.phone, website:x.website, }));
+    // .map (x => ({id:x.id, username:x.name, username:x.name, phone:x.phone, website:x.website, }));
 
     super ();
     this.state = {

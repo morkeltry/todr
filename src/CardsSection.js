@@ -64,12 +64,12 @@ console.log(visibleCards);
             distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
             swipeFn={ this.props.swipeFn }
           >
-            <UserHeader username={'un'+card.user.username} name={'u'+card.user.name} />
+            <UserHeader {...card} />
             <p className= "border" >w: {card.user.website}</p>
             <p className= "border">t: {card.user.phone}</p>
             <p className= "border">e: {card.user.email}</p>
-            <p className= "border">a: {card.user.address}</p>
-            <Company company={card.user.company} />
+            <p className= "border">a: {"card.user.address"}</p>
+            <Company company={"card.user.company"} />
           </Card>
         )}
       </div>
