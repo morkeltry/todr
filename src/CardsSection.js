@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import windowSize from 'react-window-size';
+import Swipeable from "react-swipy";
 import Card from './CardBasic';
 // import OtherComponent from './OtherComponent';
 import './CardsSection.css';
@@ -57,7 +58,7 @@ class CardsSection extends Component {
           <Card
             {...card}
             active={ 1+idx===this.state.activeCard }
-            distanceFromActive={ Math.abs(1+idx-this.state.activeCard) } 
+            distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
           />
         )}
       </div>

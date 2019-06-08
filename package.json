@@ -6,6 +6,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "react-swipy": "0.0.6",
     "react-window-size": "^1.2.2"
   },
   "scripts": {

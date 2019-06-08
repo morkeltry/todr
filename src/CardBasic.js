@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Swipeable from "react-swipy";
 // import OtherComponent from './OtherComponent';
 // import './BlankComponent.css';
 
@@ -19,19 +20,27 @@ class Card extends Component {
   render() {
     const { xPos, yPos, idx, active, distanceFromActive, cardSize } = this.props;
     const { height, width } = cardSize;
-    const styles = {
+    const posStyles = {
       position: 'absolute',
       top: active ? yPos : yPos+distanceFromActive*distanceFromActive*5,
       left: xPos,
       height,
       width,
-      backgroundColor: arbitraryHexColor(idx+1),
       zIndex : active ? 10 : 10-distanceFromActive
     };
+    const contentStyles = {
+      height,
+      width,
+      backgroundColor: arbitraryHexColor(idx+1)
+    }
 
     return (
-      <div style={{ ...styles }} >
-        <p>{JSON.stringify(this.props.card)+(this.props.idx)+styles.backgroundColor}</p>
+      <div style={ posStyles } >
+        <Swipeable>
+          <div style={ contentStyles }>
+            <p>{JSON.stringify(this.props.card)+(this.props.idx)+contentStyles.backgroundColor}</p>
+          </div>
+        </Swipeable>
       </div>
     );
   };
