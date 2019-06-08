@@ -1,0 +1,13 @@
+.stay-in-your-box {
+  overflow-x : hidden;
+  overflow-y: hidden;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-moz-scrollbars {
+  display: none;
+}

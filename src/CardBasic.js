@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Swipeable from "react-swipy";
 // import OtherComponent from './OtherComponent';
-// import './BlankComponent.css';
+import './CardBasic.css';
 
 const arbitraryHexColor = (n,x)=>
   '#'+
@@ -40,7 +40,7 @@ class Card extends Component {
     }
 
     return (
-      <div style={ posStyles } >
+      <div className="stay-in-your-box" style={ posStyles } >
         <Swipeable {...swipyProps} >
           <div style={ contentStyles }>
             { this.props.children }

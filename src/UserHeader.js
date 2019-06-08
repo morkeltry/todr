@@ -13,7 +13,6 @@ const maxWidthTextSize = (width, text) => {
   const roundDown = [6,8,10,12,15,18,23,28,32,40]
     .reverse()
     .find( el=> el<=pxSize );
-  console.log(width, text.length,roundDown );
   return 'px'+roundDown;
 }
 
@@ -34,10 +33,7 @@ class UserHeader extends Component {
 
 
   render() {
-  console.log(this.props);
-  console.log(this.state);
     const { username, name } = this.props.user;
-    console.log( { username, name } );
     return (
       <div>
         <p className={ 'user-header__user '+this.maxWidthTextSize(username) }>

@@ -5,6 +5,8 @@ import Swipeable from "react-swipy";
 import Card from './CardBasic';
 import UserHeader from './UserHeader';
 import Company from './Company';
+import TodoLogo from './TodoLogo';
+import AsTable from './AsTable';
 // import OtherComponent from './OtherComponent';
 import './CardsSection.css';
 
@@ -44,7 +46,6 @@ class CardsSection extends Component {
   };
 
   render() {
-console.log(this.props.cards);
     const visibleCards = this.props.cards.map ((card, idx) =>
        Object.assign( {},
          {user: card},
@@ -53,10 +54,8 @@ console.log(this.props.cards);
          {idx, key : 'card'+(idx+1)}
        )
     );
-console.log(visibleCards);
     return (
       <div className="positioned-element-container">
-        {console.log(visibleCards)}
         {visibleCards.map ((card,idx) =>
           <Card
             {...card}
@@ -65,11 +64,27 @@ console.log(visibleCards);
             swipeFn={ this.props.swipeFn }
           >
             <UserHeader {...card} />
-            <p className= "border" >w: {card.user.website}</p>
-            <p className= "border">t: {card.user.phone}</p>
-            <p className= "border">e: {card.user.email}</p>
-            <p className= "border">a: {"card.user.address"}</p>
+            <AsTable contentType="website">
+              <p className= "border" >{card.user.website}</p>
+            </AsTable>
+            <AsTable contentType="phone">
+              <p className= "border" >{card.user.phone}</p>
+            </AsTable>
+            <AsTable contentType="email">
+              <p className= "border" >{card.user.email}</p>
+            </AsTable>
+            <AsTable contentType="address">
+              <div className= "border" >
+                {Object.keys(card.user.address)
+                  .map (key =>
+                    (typeof card.user.address[key] !== 'object') ?
+                      <p className='squash-vertically '>{card.user.address[key]}</p>
+                      : null
+                  )}
+              </div>
+            </AsTable>
             <Company company={"card.user.company"} />
+            <TodoLogo width={32}/>
           </Card>
         )}
       </div>

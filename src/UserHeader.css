@@ -1,8 +1,11 @@
 .user-header__user {
-
+  padding : 0.5rem auto;
+  margin-bottom : 0.5rem;
 }
 
 .user-header__name {
+  padding : 0.5rem auto;
+  margin : 0.5rem auto;
 
 }
 
