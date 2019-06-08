@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import windowSize from 'react-window-size';
 import Swipeable from "react-swipy";
 import Card from './CardBasic';
+import UserHeader from './UserHeader';
+import Company from './Company';
 // import OtherComponent from './OtherComponent';
 import './CardsSection.css';
 
@@ -22,7 +24,6 @@ class CardsSection extends Component {
       .fill()
       .map ((_,idx) => (idx+1)*midCardXPos*2/(n+1)) ;
     const xYPos = xPosArr.map (xPos=> ({xPos,yPos}));
-  console.log({ height, width, yPos});
 
     return xYPos;
   };
@@ -43,24 +44,33 @@ class CardsSection extends Component {
   };
 
   render() {
+console.log(this.props.cards);
     const visibleCards = this.props.cards.map ((card, idx) =>
        Object.assign( {},
-         {card},
+         {user: card},
          this.state.cardNPos[idx],
          {cardSize : this.state.cardSize},
          {idx, key : 'card'+(idx+1)}
        )
     );
-
+console.log(visibleCards);
     return (
       <div className="positioned-element-container">
+        {console.log(visibleCards)}
         {visibleCards.map ((card,idx) =>
           <Card
             {...card}
             active={ 1+idx===this.state.activeCard }
             distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
             swipeFn={ this.props.swipeFn }
-          />
+          >
+            <UserHeader username={'un'+card.user.username} name={'u'+card.user.name} />
+            <p className= "border" >w: {card.user.website}</p>
+            <p className= "border">t: {card.user.phone}</p>
+            <p className= "border">e: {card.user.email}</p>
+            <p className= "border">a: {card.user.address}</p>
+            <Company company={card.user.company} />
+          </Card>
         )}
       </div>
     )

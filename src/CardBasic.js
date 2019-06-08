@@ -26,6 +26,7 @@ class Card extends Component {
       left: xPos,
       height,
       width,
+      maxWidth : width,
       zIndex : active ? 10 : 10-distanceFromActive
     };
     const contentStyles = {
@@ -42,7 +43,7 @@ class Card extends Component {
       <div style={ posStyles } >
         <Swipeable {...swipyProps} >
           <div style={ contentStyles }>
-            <p>{JSON.stringify(this.props.card)+(this.props.idx)+contentStyles.backgroundColor}</p>
+            { this.props.children }
           </div>
         </Swipeable>
       </div>
