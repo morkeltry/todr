@@ -25,7 +25,7 @@ class AsTable extends Component {
       case 'address' :
         header = <span>Address:</span> ;
         break
-      case 'email' :
+      case 'address' :
         header = <span>Email:</span> ;
         break
       default : {}
