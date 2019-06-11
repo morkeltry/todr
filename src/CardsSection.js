@@ -3,12 +3,8 @@ import React, { Component } from 'react';
 import windowSize from 'react-window-size';
 import Swipeable from "react-swipy";
 import Card from './CardBasic';
-import UserHeader from './UserHeader';
-import Company from './Company';
-import TodoLogo from './TodoLogo';
-import AsTable from './AsTable';
+import UserCard from './UserCard';
 // import OtherComponent from './OtherComponent';
-import './CardsSection.css';
 
 
 class CardsSection extends Component {
@@ -64,31 +60,10 @@ class CardsSection extends Component {
             distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
             swipeFn={ this.props.swipeFn }
           >
-            <UserHeader {...card} />
-            <AsTable contentType="website" cardSize={ card.cardSize } >
-              <p className= "border valign-block-element" >{card.user.website}</p>
-            </AsTable>
-            <AsTable contentType="phone" cardSize={ card.cardSize }>
-              <p className= "border valign-block-element" >{card.user.phone}</p>
-            </AsTable>
-            <AsTable contentType="email" cardSize={ card.cardSize }>
-              <p className= "border valign-block-element" >{card.user.email}</p>
-            </AsTable>
-            <AsTable contentType="address" cardSize={ card.cardSize }>
-              <div className= "border valign-block-element" >
-                {Object.keys(card.user.address)
-                  .map (key =>
-                    (typeof card.user.address[key] !== 'object') ?
-                      <p className='squash-vertically '>{card.user.address[key]}</p>
-                      : null
-                  )}
-              </div>
-            </AsTable>
-            <Company company={"card.user.company"} cardWidth={ card.cardSize.width }/>
-            <TodoLogo width={32}/>
-          </Card>
-        )}
-      </div>
+          <UserCard card={card} />
+        </Card>
+      )})}
+    </div>
     )
   };
 }
