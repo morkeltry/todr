@@ -13,8 +13,6 @@ class AsTable extends Component {
   };
 
   render() {
-    console.log(this.props.children );
-
     var header = data = null;
     var data = this.props.children;
     var { height, width } = this.props.cardSize;

@@ -4,6 +4,7 @@ import windowSize from 'react-window-size';
 import Swipeable from "react-swipy";
 import Card from './CardBasic';
 import UserCard from './UserCard';
+import TodoCard from './TodoCard';
 // import OtherComponent from './OtherComponent';
 
 
@@ -37,6 +38,7 @@ class CardsSection extends Component {
     this.state = {
       activeCard : ~~((numberOfCards+1)/2) ,
       cardNPos : this.defaultCardPositions(numberOfCards,{ height, width }, cardSize ),
+      showingTodos : [],
       cardSize
     }
   };
@@ -60,9 +62,12 @@ class CardsSection extends Component {
             distanceFromActive={ Math.abs(1+idx-this.state.activeCard) }
             swipeFn={ this.props.swipeFn }
           >
-          <UserCard card={card} />
+          { this.state.showingTodos[card.id] ?
+            <TodoCard card={card} />
+            : <UserCard card={card} />
+          }
         </Card>
-      )})}
+      )}
     </div>
     )
   };
