@@ -46,6 +46,7 @@ class CardsSection extends Component {
   };
 
   render() {
+
     const visibleCards = this.props.cards.map ((card, idx) =>
        Object.assign( {},
          {user: card},
@@ -55,7 +56,7 @@ class CardsSection extends Component {
        )
     );
     return (
-      <div className="positioned-element-container">
+      <div className="positioned-element-container v-align-centre">
         {visibleCards.map ((card,idx) =>
           <Card
             {...card}
@@ -64,17 +65,17 @@ class CardsSection extends Component {
             swipeFn={ this.props.swipeFn }
           >
             <UserHeader {...card} />
-            <AsTable contentType="website">
-              <p className= "border" >{card.user.website}</p>
+            <AsTable contentType="website" cardSize={ card.cardSize } >
+              <p className= "border valign-block-element" >{card.user.website}</p>
             </AsTable>
-            <AsTable contentType="phone">
-              <p className= "border" >{card.user.phone}</p>
+            <AsTable contentType="phone" cardSize={ card.cardSize }>
+              <p className= "border valign-block-element" >{card.user.phone}</p>
             </AsTable>
-            <AsTable contentType="email">
-              <p className= "border" >{card.user.email}</p>
+            <AsTable contentType="email" cardSize={ card.cardSize }>
+              <p className= "border valign-block-element" >{card.user.email}</p>
             </AsTable>
-            <AsTable contentType="address">
-              <div className= "border" >
+            <AsTable contentType="address" cardSize={ card.cardSize }>
+              <div className= "border valign-block-element" >
                 {Object.keys(card.user.address)
                   .map (key =>
                     (typeof card.user.address[key] !== 'object') ?
@@ -83,7 +84,7 @@ class CardsSection extends Component {
                   )}
               </div>
             </AsTable>
-            <Company company={"card.user.company"} />
+            <Company company={"card.user.company"} cardWidth={ card.cardSize.width }/>
             <TodoLogo width={32}/>
           </Card>
         )}

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  box-sizing : border-box;
 }
 
 .app__horizontalLine {
@@ -19,6 +20,11 @@
 .squash-vertically {
   padding : 0.5rem auto;
   margin : 0 auto;
+}
+
+.valign-block-element {
+  box-sizing: border-box;
+  padding : 1vh 0;
 }
 
 .flex-container {
@@ -41,7 +47,8 @@
   width : 80%;
   margin-left: auto;
   text-align : left;
-  align : left;
+  /* hack!!! pass cardHeight in props to override me!*/
+  height : 6.5vh;
 }
 
 .App-logo {

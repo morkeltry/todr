@@ -40,7 +40,7 @@ class Card extends Component {
     }
 
     return (
-      <div className="card stay-in-your-box" style={ posStyles } >
+      <div className="card stay-in-your-box squash-vertically" style={ posStyles } >
         <Swipeable {...swipyProps} >
           <div style={ contentStyles }>
             { this.props.children }
